@@ -1,6 +1,6 @@
-var React = require('react');
-var CommentList = require('./CommentList');
-var CommentForm = require('./CommentForm');
+var React = require("react");
+var CommentList = require("./CommentList");
+var CommentForm = require("./CommentForm");
 
 var CommentBox = React.createClass({
   getInitialState: function() {

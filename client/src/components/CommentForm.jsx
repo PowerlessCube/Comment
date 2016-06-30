@@ -1,7 +1,7 @@
-var React = require('react');
+var React = require("react");
 var CommentForm = React.createClass({
   getInitialState: function() {
-    return {author: '', text: ''};
+    return {author: ", text: "};
   },
   handleAuthorChange: function(e) {
     this.setState({author: e.target.value});
@@ -18,7 +18,7 @@ var CommentForm = React.createClass({
     }
     // TODO: send request to the server
     this.props.onCommentSubmit({author: author, text: text});
-    this.setState({author: '', text: ''});
+    this.setState({author: ", text: "});
   },
   render: function() {
     return (
