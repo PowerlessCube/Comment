@@ -8,19 +8,22 @@ var CommentBox = React.createClass({
   },
 
 	fetchComments: function() {
-		console.log('CDM was called');
 		var request = new XMLHttpRequest();
 		request.open("GET", this.props.url);
 		request.onload = function() {
 			var dbComments = JSON.parse( request.responseText );
 			this.setState({ data: dbComments });
-		}.bind(this)
+		}.bind(this);
 		request.send();
 	},
-	
+
 	//OUt of the box react function that allows us to make api requests to apis or dbs
 	componentDidMount: function() {
+		//Polling is when we make constantly asking the server if there is any new information "Are we there yet? Are we there yet?"
 		this.fetchComments();
+		//Checks every second for any new information.
+		//There are otherways like having an HTTP socket. Can be memory intensive.
+		setInterval( this.fetchComments, 1000 );
 	},
 
   handleCommentSubmit: function(comment) {
@@ -33,10 +36,10 @@ var CommentBox = React.createClass({
 		request.open("POST", this.props.url);
 		request.setRequestHeader("Content-Type", "application/json");
 		request.onload = function() {
-			if(request.status === 200){
+			if (request.status === 200){
 				this.fetchComments();
 			}
-		}
+		}.bind(this);
 		request.send(JSON.stringify( comment ));
   },
 

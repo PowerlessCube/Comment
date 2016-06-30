@@ -14,6 +14,12 @@
     "express": "^4.13.4",
     "mongodb": "^2.1.18"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-google": "^0.6.0",
+    "eslint-config-standard": "^5.3.1",
+    "eslint-plugin-react": "^5.2.2",
+    "eslint-plugin-standard": "^1.3.2"
+  },
   "description": ""
 }
